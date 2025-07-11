@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { cn } from '../../client/cn';
 import Logo from '../../client/static/logo.webp';
 import SidebarLinkGroup from './SidebarLinkGroup';
-import { cn } from '../../client/cn';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -55,7 +55,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     <aside
       ref={sidebar}
       className={cn(
-        'absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gray-800 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0',
+        'absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-card duration-300 ease-linear lg:static lg:translate-x-0',
         {
           'translate-x-0': sidebarOpen,
           '-translate-x-full': !sidebarOpen,
@@ -97,7 +97,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <nav className='mt-5 py-4 px-4 lg:mt-9 lg:px-6'>
           {/* <!-- Menu Group --> */}
           <div>
-            <h3 className='mb-4 ml-4 text-sm font-semibold text-bodydark2'>MENU</h3>
+            <h3 className='mb-4 ml-4 text-sm font-semibold text-muted-foreground'>MENU</h3>
 
             <ul className='mb-6 flex flex-col gap-1.5'>
               {/* <!-- Menu Item Dashboard --> */}
@@ -106,9 +106,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 end
                 className={({ isActive }) =>
                   cn(
-                    'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                    'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                     {
-                      'bg-gray-700 dark:bg-meta-4': isActive,
+                      'bg-accent text-accent-foreground': isActive,
                     }
                   )
                 }
@@ -147,11 +147,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to='/admin/users'
+                  end
                   className={({ isActive }) =>
                     cn(
-                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                       {
-                        'bg-gray-700 dark:bg-meta-4': isActive,
+                        'bg-accent text-accent-foreground': isActive,
                       }
                     )
                   }
@@ -185,11 +186,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to='/admin/settings'
+                  end
                   className={({ isActive }) =>
                     cn(
-                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                       {
-                        'bg-gray-700 dark:bg-meta-4': isActive,
+                        'bg-accent text-accent-foreground': isActive,
                       }
                     )
                   }
@@ -227,18 +229,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
           {/* <!-- Others Group --> */}
           <div>
-            <h3 className='mb-4 ml-4 text-sm font-semibold text-bodydark2'>Extra Components</h3>
+            <h3 className='mb-4 ml-4 text-sm font-semibold text-muted-foreground'>Extra Components</h3>
 
             <ul className='mb-6 flex flex-col gap-1.5'>
               {/* <!-- Menu Item Chart --> */}
               <li>
                 <NavLink
                   to='/admin/chart'
+                  end
                   className={({ isActive }) =>
                     cn(
-                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                       {
-                        'bg-gray-700 dark:bg-meta-4': isActive,
+                        'bg-accent text-accent-foreground': isActive,
                       }
                     )
                   }
@@ -280,9 +283,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <NavLink
                         to='#'
                         className={cn(
-                          'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                          'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                           {
-                            'bg-gray-700 dark:bg-meta-4': pathname.includes('forms'),
+                            'bg-accent text-accent-foreground': pathname.includes('forms'),
                           }
                         )}
                         onClick={(e) => {
@@ -344,10 +347,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <NavLink
                               to='/admin/forms/form-elements'
+                              end
                               className={({ isActive }) =>
                                 cn(
-                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white',
-                                  { '!text-white': isActive }
+                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:text-accent',
+                                  { '!text-accent': isActive }
                                 )
                               }
                             >
@@ -357,10 +361,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <NavLink
                               to='/admin/forms/form-layouts'
+                              end
                               className={({ isActive }) =>
                                 cn(
-                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white',
-                                  { '!text-white': isActive }
+                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:text-accent',
+                                  { '!text-accent': isActive }
                                 )
                               }
                             >
@@ -380,11 +385,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to='/admin/calendar'
+                  end
                   className={({ isActive }) =>
                     cn(
-                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                      'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                       {
-                        'bg-gray-700 dark:bg-meta-4': isActive,
+                        'bg-accent text-accent-foreground': isActive,
                       }
                     )
                   }
@@ -415,9 +421,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <NavLink
                         to='#'
                         className={cn(
-                          'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-gray-700 dark:hover:bg-meta-4',
+                          'group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
                           {
-                            'bg-gray-700 dark:bg-meta-4': pathname.includes('ui'),
+                            'bg-accent text-accent-foreground': pathname.includes('ui'),
                           }
                         )}
                         onClick={(e) => {
@@ -478,10 +484,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <NavLink
                               to='/admin/ui/alerts'
+                              end
                               className={({ isActive }) =>
                                 cn(
-                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white',
-                                  { '!text-white': isActive }
+                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:text-accent',
+                                  { '!text-accent': isActive }
                                 )
                               }
                             >
@@ -491,10 +498,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <NavLink
                               to='/admin/ui/buttons'
+                              end
                               className={({ isActive }) =>
                                 cn(
-                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white',
-                                  { '!text-white': isActive }
+                                  'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-muted-foreground duration-300 ease-in-out hover:text-accent',
+                                  { '!text-accent': isActive }
                                 )
                               }
                             >
